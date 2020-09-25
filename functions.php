@@ -64,3 +64,8 @@ function basics_enqueue_styles() {
     wp_enqueue_style( 'basics-style', get_template_directory_uri() . '/style.css');
 }
 add_action('wp_enqueue_scripts', 'basics_enqueue_styles');
+
+function basics_enqueue_scripts() {
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ) );
+}
+add_action('wp_enqueue_scripts', 'basics_enqueue_styles');
