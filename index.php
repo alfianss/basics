@@ -1,11 +1,15 @@
 <?php
 get_header();
 
-
+if (have_posts()): while (have_posts()) : the_post();
+the_title();
+the_content();
 ?>
 
-Index
+
 <?php
+endwhile; 
+endif;
 
 get_sidebar();
 wp_link_pages(

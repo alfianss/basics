@@ -1,8 +1,6 @@
 <?php
 get_header();
 
-if(is_singular() && !is_page()) {
-
 ?>
 <div class="container">
   <div class="row">
@@ -28,7 +26,7 @@ if(is_singular() && !is_page()) {
   </div>
 </div>
 <?php
-}
+
 get_sidebar();
 get_footer();
 ?>
