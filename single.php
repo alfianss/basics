@@ -1,11 +1,13 @@
 <?php
 get_header();
+
+if(is_singular() && get_post_type() != 'post') {
 ?>
 
 <div class="container">
   <div class="row">
         <?php 
-            $mypost = array( 'post_type' => 'team_members', 'p' => get_the_ID() );
+            $mypost = array( 'post_type' => get_post_type(), 'p' => get_the_ID() );
             $loop = new WP_Query( $mypost );
     
             $html = "<div class='row col-md-12' style='width: 100%; '>";
@@ -26,5 +28,26 @@ get_header();
 </div>
 
 <?php
+} else {
+  
+    ?>
+    <div class="container">
+    <div class="row">
+        
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+        <?php echo get_the_title(); ?>
+        <?php the_content(); ?>
+        <?php echo get_the_date(); ?>
+
+        <?php endwhile; ?>
+        <?php endif; ?>
+
+    </div>
+  </div>
+
+<?php
+}
+get_sidebar();
 get_footer();
 ?>

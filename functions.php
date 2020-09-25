@@ -66,6 +66,29 @@ function basics_enqueue_styles() {
 add_action('wp_enqueue_scripts', 'basics_enqueue_styles');
 
 function basics_enqueue_scripts() {
-    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ) );
+    wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array( 'jquery' ) );
 }
-add_action('wp_enqueue_scripts', 'basics_enqueue_styles');
+add_action('wp_enqueue_scripts', 'basics_enqueue_scripts');
+
+function sample(){
+    $fruits = ['apple', 'banana'];
+    echo "HEllo";
+    return apply_filters('fruit_list', $fruits);
+}
+
+function example_callback( $example ) {
+    // Maybe modify $example in some way.
+    echo "HAI";
+    return $example;
+}
+
+// add_filter('kata_kata', function($char){ return '123456i'; });
+// add_filter('kata_kata', function($char){ return 'abc'; });
+// add_filter('kata_kata', function($char){ return 'main'; });
+// add_filter('kata_kata', function($arr) { $rsl = ''; foreach($arr as $a){ $rsl .= $a;  }; return $rsl; });
+
+// function do_sample(){
+    // add_filter('filter_sample', 'sample');
+    // echo "abcdefg" . apply_filters('kata_kata', ["h", "i"]) . "jklmn";
+// }
+// add_action('init', 'do_sample');
